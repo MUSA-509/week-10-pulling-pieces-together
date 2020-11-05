@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Skeleton: Responsive CSS Boilerplate</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+<!--CSS 
+---------------------------- -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }} ">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+<body>
+<div class="section hero">
+  <div class="container">
+      <h1>Covid Tests in Zip Code {{ covid_data['zip_code'] }}</h1>
+      <h4>Address entered: {{ address }}</h4>
+      <p>
+      In your zip code ({{ covid_data['zip_code'] }}) there are:
+        <ul>
+          <li><b style='color: green;'>{{ covid_data['num_tests_negative'] }} negative tests</b></li>
+          <li><b style='color: red;'>{{ covid_data['num_tests_positive'] }} positive tests</b></li>
+        </ul>
+      </p>
+      <h2>Nearest Hospital</h2>
+      <p>
+      Your nearest hospital is {{ nearest_hospital['amenity_name'] }}.<br />
+      Call ahead at {{ nearest_hospital['phone_number'] }}.
+      </p>
+  {{ html_map|safe }}
+  </div>
+</div> <!-- section hero class div -->
+
+</html>
