@@ -74,7 +74,7 @@ Similar instructions for [MySQL](https://aws.amazon.com/getting-started/hands-on
      2. Then choose the table in the tables list
      3. Right click and choose `Import/Export`
 
-   * You can also import data into the DB using Python pandas
+   * You can also import data into the DB using Python pandas. See [pandas to_sql docs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_sql.html)
 
      1. Create a SQLAlchemy engine
      2. Import data using `df = pd.read_csv(...)` or appropriate function
