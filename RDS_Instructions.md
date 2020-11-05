@@ -20,6 +20,7 @@ Similar instructions for [MySQL](https://aws.amazon.com/getting-started/hands-on
 7. Click "Create Database"
   <img width=480  src="images/create_database.png" />
 8. Select the following options
+
    - **Choose a database creation method**: Standard Create
    - **Engine Options**: Choose PostgreSQL
    - **Templates**: Choose Dev/Test
