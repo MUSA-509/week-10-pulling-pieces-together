@@ -52,15 +52,33 @@ Similar instructions for [MySQL](https://aws.amazon.com/getting-started/hands-on
      SELECT PostGIS_full_version();
      ```
    * Run a sample query and view results:
-   ```SQL
-     SELECT
-         ST_SetSRID(ST_MakePoint(10* random(), 10 * random()), 4326) as geom,
-      	row_number() over () as gid
-     FROM generate_series(1, 100)
-   ```
+     ```SQL
+       SELECT
+           ST_SetSRID(ST_MakePoint(10* random(), 10 * random()), 4326) as geom,
+      	  row_number() over () as gid
+       FROM generate_series(1, 100)
+     ```
 4. Import data!
+
    * Getting data into a database can be pretty annoying.
+   * We can import data into the `public` schema (the default schema). It may be useful to add another schema for organizing your project. See [PostgreSQL docs](https://www.postgresql.org/docs/12/sql-createschema.html).
+     ```SQL
+     CREATE SCHEMA IF NOT EXISTS schema_name;
+     ```
    * We can import data using pgAdmin if the table is already created
+
+     1. Create table with appropriate schema
+       ```SQL
+        CREATE TABLE IF NOT EXISTS test(id integer, description text);
+       ```
+     2. Then choose the table in the tables list
+     3. Right click and choose `Import/Export`
+
+   * You can also import data into the DB using Python pandas
+
+     1. Create a SQLAlchemy engine
+     2. Import data using `df = pd.read_csv(...)` or appropriate function
+     3. Run `df.to_sql('yourtablename', con=engine)`
 
 
 Reference: <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.PostGIS>
