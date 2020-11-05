@@ -31,6 +31,7 @@ Similar instructions for [MySQL](https://aws.amazon.com/getting-started/hands-on
    - **Connectivity** -> **Additional connectivity configuration**: Choose "Yes" under Public access
    - **Estimated monthly costs**: Note the estimated charges. This assumes you leave the DB running 24/7. You can stop it at any time when it won't be in use.
    - **Create Database**: Click "Create Database"
+
 8. It will take about 5 minutes for the DB to get all setup.
 
 ### Add DB to pgAdmin
