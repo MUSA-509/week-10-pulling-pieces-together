@@ -20,17 +20,17 @@ Similar instructions for [MySQL](https://aws.amazon.com/getting-started/hands-on
 7. Click "Create Database"
   <img width=480  src="images/create_database.png" />
 8. Select the following options
-   * **Choose a database creation method**: Standard Create
-   * **Engine Options**: Choose PostgreSQL
-   * **Templates**: Choose Dev/Test
-   * **Settings**:
+   - **Choose a database creation method**: Standard Create
+   - **Engine Options**: Choose PostgreSQL
+   - **Templates**: Choose Dev/Test
+   - **Settings**:
      - Change username to something meaningful (and **write it down**)
      - Add password (and **write it down**)
-   * **DB instance size**: Choose "Burstable" classes, `db.t3.micro` to start. If your queries are more intensive you can change this later.
-   * **Storage**: Lower it to 5 GB. This is quite a lot and you can change it later if you need more.
-   * **Connectivity** -> **Additional connectivity configuration**: Choose "Yes" under Public access
-   * **Estimated monthly costs**: Note the estimated charges. This assumes you leave the DB running 24/7. You can stop it at any time when it won't be in use.
-   * **Create Database**: Click "Create Database"
+   - **DB instance size**: Choose "Burstable" classes, `db.t3.micro` to start. If your queries are more intensive you can change this later.
+   - **Storage**: Lower it to 5 GB. This is quite a lot and you can change it later if you need more.
+   - **Connectivity** -> **Additional connectivity configuration**: Choose "Yes" under Public access
+   - **Estimated monthly costs**: Note the estimated charges. This assumes you leave the DB running 24/7. You can stop it at any time when it won't be in use.
+   - **Create Database**: Click "Create Database"
 8. It will take about 5 minutes for the DB to get all setup.
 
 ### Add DB to pgAdmin
