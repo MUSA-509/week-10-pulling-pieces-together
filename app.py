@@ -32,12 +32,18 @@ engine = create_engine(f"postgresql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATAB
 # index page
 @app.route("/")
 def index():
-    index_html = """
+    index_html = f"""
+    <h2>Hello Endpoints</h2>
     <ul>
-      <li><a href="{/hello_basic/MUSA%20509/</li>
-      <li>
-
-
+      <li><a href="{url_for('hello_basic', name='MUSA 509')}">{url_for('hello_basic', name='MUSA 509')}</a></li>
+      <li><a href="{url_for('hello_basic_html', name='MUSA 509')}">{url_for('hello_basic_html', name='MUSA 509')}</a></li>
+      <li><a href="{url_for('hello_template', name='MUSA 509')}">{url_for('hello_template', name='MUSA 509')}</a></li>
+      <li><a href="{url_for('hello_jinja_basic', name='MUSA 509')}">{url_for('hello_jinja_basic', name='MUSA 509')}</a></li>
+      <li><a href="{url_for('hello_jinja_styled', name='MUSA 509')}">{url_for('hello_jinja_styled', name='MUSA 509')}</a></li>
+    </ul>
+    <h2>Jinja-templated Covid Example</h2>
+    <ul>
+      <li><a href="{url_for('covid_tests', address='Meyerson Hall, University of Pennsylvania')}">{url_for('covid_tests', address='Meyerson Hall, University of Pennsylvania')}</a></li>
     </ul>
     """
     return index_html
@@ -85,7 +91,7 @@ def hello_jinja_basic(name):
 
 # variable rules
 @app.route("/hello_jinja_styled/<string:name>/")
-def hello_styled(name):
+def hello_jinja_styled(name):
     """Return a Jinja2-templated welcome page"""
     html_out = render_template("hello_styled.html", name=name)
     return html_out
@@ -93,6 +99,7 @@ def hello_styled(name):
 
 @app.route("/sample/<string:name>/")
 def sample(name):
+    """Sample from lecture"""
     counts = [
         {"name": "bike", "count": 20},
         {"name": "scooter", "count": 30},
